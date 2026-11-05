@@ -1,0 +1,65 @@
+# ==========================================
+# VisionRiders .gitignore
+# Node / React / Vite / Python / FastAPI / ML
+# ==========================================
+
+# Dependencies
+node_modules/
+frontend/node_modules/
+package-lock.json.tmp
+
+# Python Virtual Environments & Caches
+.venv/
+venv/
+env/
+ENV/
+__pycache__/
+*/__pycache__/
+*/*/__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Environment Variables & Sensitive Credentials
+.env
+.env.local
+.env.*.local
+*.pem
+*.key
+*.secret
+
+# Large Machine Learning Models & Weights
+*.pt
+*.pth
+*.onnx
+*.tflite
+*.weights
+*.bin
+backend/models/*.pt
+backend/models/*.onnx
+runs/
+.ultralytics/
+
+# Temporary Files, Uploads & Processed Media
+backend/output/*
+!backend/output/.gitkeep
+output/*
+*.tmp
+*.temp
+temp/
+tmp/
+*.log
+
+# Frontend Build Outputs
+dist/
+frontend/dist/
+dist-ssr/
+*.local
+
+# IDE & OS Metadata
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+*.swo

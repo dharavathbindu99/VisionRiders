@@ -1,0 +1,103 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-main: #070B14;
+    --bg-card: rgba(13, 22, 40, 0.7);
+    --border-card: rgba(34, 211, 238, 0.18);
+    --cyan-glow: #00F0FF;
+    --blue-neon: #3B82F6;
+  }
+
+  body {
+    background-color: #070B14;
+    color: #E2E8F0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #090e1a;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #1e293b;
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #0ea5e9;
+  }
+}
+
+/* Glassmorphism styling */
+.glass-panel {
+  background: rgba(13, 22, 40, 0.65);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(34, 211, 238, 0.15);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+.glass-panel-glow {
+  background: rgba(13, 22, 40, 0.75);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(0, 240, 255, 0.3);
+  box-shadow: 0 0 20px rgba(0, 240, 255, 0.12), inset 0 0 15px rgba(0, 240, 255, 0.05);
+}
+
+.hud-grid {
+  background-image: 
+    linear-gradient(to right, rgba(14, 165, 233, 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(14, 165, 233, 0.06) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+.telemetry-border {
+  position: relative;
+}
+.telemetry-border::before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  width: 8px;
+  height: 8px;
+  border-top: 2px solid #00F0FF;
+  border-left: 2px solid #00F0FF;
+}
+.telemetry-border::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  right: -1px;
+  width: 8px;
+  height: 8px;
+  border-bottom: 2px solid #00F0FF;
+  border-right: 2px solid #00F0FF;
+}
+
+/* Scanning line animation */
+@keyframes scanline {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(1000%); }
+}
+
+.animate-scan {
+  animation: scanline 4s linear infinite;
+}
+
+/* Pulse glow animation */
+@keyframes neonPulse {
+  0%, 100% { opacity: 0.8; filter: drop-shadow(0 0 8px rgba(0, 240, 255, 0.6)); }
+  50% { opacity: 1; filter: drop-shadow(0 0 16px rgba(0, 240, 255, 0.9)); }
+}
+
+.neon-glow {
+  animation: neonPulse 3s ease-in-out infinite;
+}
